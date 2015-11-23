@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:text="@string/nomeAvaliador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/nomeAvaliador"/>
+
+    <TextView
+        android:text="@string/tituloTrabalho"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EditNomeAvaliador"
+        android:id="@+id/tituloTrabalho"/>
+
+    <TextView
+        android:text="@string/notaTrabalho"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EditTituloTrabalho"
+        android:id="@+id/notaTrabalho"/>
+
+    <TextView
+        android:text="@string/comentarioTrabalho"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/EditNotaTrabalho"
+        android:id="@+id/comentarioTrabalho"/>
+
+    <EditText
+        android:id="@+id/EditNomeAvaliador"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@id/nomeAvaliador"/>
+
+    <EditText
+        android:id="@+id/EditTituloTrabalho"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@id/tituloTrabalho"/>
+
+    <EditText
+        android:id="@+id/EditNotaTrabalho"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@id/notaTrabalho"/>
+
+    <EditText
+        android:id="@+id/EditComentarioTrabalho"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_below="@id/comentarioTrabalho"/>
+
+    <Button
+        android:id="@+id/Avaliar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/EditComentarioTrabalho"
+        android:layout_alignParentRight="true"
+        android:text="@string/Avaliar" />
+
+    <Button
+        android:id="@+id/contarAvaliacoes"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/Avaliar"
+        android:layout_alignParentRight="true"
+        android:text="@string/contarAvaliacoes"/>
+
+</RelativeLayout>

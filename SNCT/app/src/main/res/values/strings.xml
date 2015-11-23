@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">SNCT</string>
+    <string name="title_activity_splash_screen">SplashScreenActivity</string>
+    <string name="nomeAvaliador">Nome do avaliador</string>
+    <string name="tituloTrabalho">Título do trabalho</string>
+    <string name="notaTrabalho">Nota</string>
+    <string name="comentarioTrabalho">Comentário</string>
+    <string name="Avaliar">Avaliar</string>
+    <string name="contarAvaliacoes">Contar Avaliacões</string>
+    <string name="boasVindas">Bem vindo!</string>
+
+</resources>
