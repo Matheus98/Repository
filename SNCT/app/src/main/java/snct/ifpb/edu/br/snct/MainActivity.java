@@ -25,6 +25,5 @@ public class MainActivity extends Activity {
         avaliacao.setComentario("Um excelente projeto com importantes conveitos sobre a IA");
         avaliacaoDAO.inserir(avaliacao);
 
-
     }
 }

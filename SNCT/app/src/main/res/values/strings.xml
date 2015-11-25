@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">SNCT</string>
+    <string name="SNCT">SNCT</string>
+    <string name="Splash">Splash</string>
     <string name="title_activity_splash_screen">SplashScreenActivity</string>
     <string name="nomeAvaliador">Nome do avaliador</string>
     <string name="tituloTrabalho">Título do trabalho</string>

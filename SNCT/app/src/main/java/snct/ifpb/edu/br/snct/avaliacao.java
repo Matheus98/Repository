@@ -1,15 +1,11 @@
 package snct.ifpb.edu.br.snct;
 
-import java.io.Serializable;
-
-/**
- * Created by Delberto on 23/11/2015.
- */
-public class avaliacao  implements Serializable {
+public class avaliacao {
     private String nomeAvaliador;
     private String tituloTrabalho;
     private int nota;
     private String comentario;
+
     public String getNomeAvaliador() {
         return nomeAvaliador;
     }
@@ -19,7 +15,7 @@ public class avaliacao  implements Serializable {
     public String getTituloTrabalho() {
         return tituloTrabalho;
     }
-    public void setTituloTrabalho(String nome) {
+    public void setTituloTrabalho(String tituloTrabalho) {
         this.tituloTrabalho = tituloTrabalho;
     }
     public double getNota() {
@@ -28,11 +24,12 @@ public class avaliacao  implements Serializable {
     public void setNota(int nota) {
         this.nota = nota;
     }
-    public String getComentario() {
-        return comentario;
-    }
-    public void setComentario(String comentario) {
+
+    public void setComentario (String comentario){
         this.comentario = comentario;
+    }
+    public String getComentario(){
+        return comentario;
     }
 
 
