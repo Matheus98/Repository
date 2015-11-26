@@ -68,7 +68,6 @@ public class MainActivity extends Activity {
         Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
         Notification notificationBuild = new NotificationCompat.Builder(MainActivity.this)
-                .setTicker("Texto do ticker")
                 .setSmallIcon(R.drawable.correto)
                 .setContentTitle("Avaliacões")
                 .setContentText("O número de avaliações efetuadas é " + banco.buscar()+".")
