@@ -31,7 +31,7 @@ public class avaliacaoSQLHelper extends SQLiteOpenHelper {
         );
     }
     @Override
-    public void onUpgrade(SQLiteDatabase arg0, int arg1, int arg2) {
+    public void onUpgrade(SQLiteDatabase bd, int arg1, int arg2) {
     }
 
 

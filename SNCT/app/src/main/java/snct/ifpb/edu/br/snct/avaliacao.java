@@ -3,8 +3,9 @@ package snct.ifpb.edu.br.snct;
 public class avaliacao {
     private String nomeAvaliador;
     private String tituloTrabalho;
-    private int nota;
+    private String nota;
     private String comentario;
+    private int id;
 
     public String getNomeAvaliador() {
         return nomeAvaliador;
@@ -18,10 +19,10 @@ public class avaliacao {
     public void setTituloTrabalho(String tituloTrabalho) {
         this.tituloTrabalho = tituloTrabalho;
     }
-    public double getNota() {
+    public String getNota() {
         return nota;
     }
-    public void setNota(int nota) {
+    public void setNota(String nota) {
         this.nota = nota;
     }
 
@@ -30,6 +31,12 @@ public class avaliacao {
     }
     public String getComentario(){
         return comentario;
+    }
+    public double getId() {
+        return id;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 
 
