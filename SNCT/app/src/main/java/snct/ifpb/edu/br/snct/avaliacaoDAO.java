@@ -14,7 +14,6 @@ public class avaliacaoDAO {
         bd = helper.getWritableDatabase();
     }
 
-
     public void inserir(avaliacao avaliacao) {
 
 

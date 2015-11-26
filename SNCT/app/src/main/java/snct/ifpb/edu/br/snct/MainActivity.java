@@ -1,16 +1,10 @@
 package snct.ifpb.edu.br.snct;
 
 import android.app.Activity;
-import android.app.Notification;
-import android.media.RingtoneManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
 
 
 public class MainActivity extends Activity {
@@ -51,38 +45,14 @@ public class MainActivity extends Activity {
             }
         });
 
-        contaAvaliacoes.setOnClickListener(new View.OnClickListener(){
-            public void onClick (View v){
-                Notificacao();
-            }
+        contaAvaliacoes.setOnClickListener(new NotificationOnClickListener());
 
-        }
-
-        );}
-
-        public void Notificacao(){
-
-        avaliacaoDAO banco = new avaliacaoDAO (MainActivity.this);
-        int notificationId = 001;
-
-        Uri alarmSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
-
-        Notification notificationBuild = new NotificationCompat.Builder(MainActivity.this)
-                .setSmallIcon(R.drawable.correto)
-                .setContentTitle("Avaliacões")
-                .setContentText("O número de avaliações efetuadas é " + banco.buscar()+".")
-                .setSound(alarmSound)
-                .build();
-
-        NotificationManagerCompat notificationManager =
-                NotificationManagerCompat.from(MainActivity.this);
-
-
-        notificationManager.notify(notificationId, notificationBuild);
 
     }
-
 }
+
+
+
 
 
 
