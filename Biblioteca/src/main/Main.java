@@ -5,8 +5,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
-
-import CAIXA_ELETRONICO.Cliente;
 import entidades.Volume;
 import entidades.VolumeDAO;
 
@@ -66,6 +64,7 @@ public class Main {
 		}
 		System.out.println("\nCADASTRO FEITO COM SUCESSO!\n");
 	}
+	//METODO DE REMOÇÃO DE UM VOLUME
 	public static void removerVolume() throws SQLException{
 
 		input = new Scanner (System.in);
@@ -75,13 +74,13 @@ public class Main {
 		Volume volume = new Volume();
 
 		System.out.println("Bem vindo a tela de Remoção de Volumes\n");
-		
+
 		System.out.println("Entre com o titulo do volume\n");
 		valor = input.nextLine();
 		volume.setTitulo(valor);
-		
+
 		VolumeDAO volumeDAO = new VolumeDAO();
-		
+
 		try {
 
 			volumeDAO.remove(volume);
@@ -94,18 +93,23 @@ public class Main {
 		System.out.println("\nREMOÇÃO FEITA COM SUCESSO!\n");
 	}
 
+	//METODO DE CONSULTA DE VOLUME
+	public static void consultarVolume() throws SQLException{
 
-	public static void consultarVolume(String titulo) throws SQLException{
-		System.out.println("Bem vindo a tela de Consulta de Volumes\n");
-		
-				
+		input = new Scanner (System.in);
+
+		String valor = new String();
+
 		Volume volume = new Volume();
 
+		System.out.println("Bem vindo a tela de Consulta de Volumes\n");
+
+		System.out.println("Entre com o titulo do volume\n");
+		valor = input.nextLine();
+		volume.setTitulo(valor);
+
 		VolumeDAO volumeDAO = new VolumeDAO();
-		
-		System.out.println("");
-		
-		
+
 		try {
 
 			volumeDAO.query(volume);
@@ -118,44 +122,50 @@ public class Main {
 		System.out.println("\nCONSULTA FEITA COM SUCESSO!\n");
 	}
 
-
+	//METODO MAIN
 	public static void main(String[] args) throws SQLException, IOException  {
 		input = new Scanner (System.in);
 
-		System.out.println("Menu (Digite o numero para ter acesso ao serviço)\n"
-				+ ">>> 1. Cadastrar Volume\n"
-				+ ">>> 2. Remover Volume\n"
-				+ ">>> 3. Consultar Volume");
-		String escolhaFeita = input.nextLine();
+		while(true){
+
+			System.out.println("Menu (Digite o numero para ter acesso ao serviço)\n"
+					+ ">>> 1. Cadastrar Volume\n"
+					+ ">>> 2. Remover Volume\n"
+					+ ">>> 3. Consultar Volume");
+			String escolhaFeita = input.nextLine();
 
 
-		switch (escolhaFeita) {
-		case "1": try {
-			cadastrarVolume();
-		}
-		catch (java.util.InputMismatchException e){
-			System.out.println("\nDados Incorretos!\n");
-		}
-		case "2": try {
-			removerVolume();
-		}
-		catch (java.util.InputMismatchException e){
-			System.out.println("\nDados Incorretos!\n");
-		}
-		case "3":
-			try {
-				consultarVolume();
+			switch (escolhaFeita) {
+			case "1": try {
+				cadastrarVolume();
 			}
 			catch (java.util.InputMismatchException e){
 				System.out.println("\nDados Incorretos!\n");
 			}
-
-		default:
-			System.out.println("\nValor inválido\n");
 			break;
+			case "2": try {
+				removerVolume();
+			}
+			catch (java.util.InputMismatchException e){
+				System.out.println("\nDados Incorretos!\n");
+			}
+			break;
+			case "3":
+				try {
+					consultarVolume();
+				}
+				catch (java.util.InputMismatchException e){
+					System.out.println("\nDados Incorretos!\n");
+				}
+				break;
+
+			default:
+				System.out.println("\nValor inválido\n");
+				break;
+			}
+
+
 		}
-
-
 	}
 
 }

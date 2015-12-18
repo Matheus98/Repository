@@ -45,6 +45,7 @@ public class MainActivity extends Activity {
             }
         });
 
+
         contaAvaliacoes.setOnClickListener(new NotificationOnClickListener());
 
 

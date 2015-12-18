@@ -24,8 +24,8 @@ public class VolumeDAO {
 			return false;
 		}
 		String sql = "insert into tb_volume " +
-				"(ID,ANO_PUBLIC,AUTOR,DESCRICAO,EDITORA,NUM_PAG,TIPO_VOLUME,TITULO)" +
-				" values (?,?,?,?,?,?,?,?);";
+				"(ANO_PUBLIC,AUTOR,DESCRICAO,EDITORA,NUM_PAGE,TIPO_VOLUME,TITULO)" +
+				" values (?,?,?,?,?,?,?);";
 
 		try {
 
@@ -53,8 +53,7 @@ public class VolumeDAO {
 
 	public void remove (Volume volume) throws SQLException{
 		try {
-			PreparedStatement stmt = connection.prepareStatement("delete" +
-					"from tb_volume where TITULO=?");
+			PreparedStatement stmt = connection.prepareStatement("delete from tb_volume where TITULO=?");
 			stmt.setString(1, volume.getTitulo());
 			stmt.execute();
 			stmt.close();
@@ -62,35 +61,20 @@ public class VolumeDAO {
 			throw new RuntimeException(e);
 		}
 	}
-	public Volume get(String titulo) throws SQLException{
-		Volume volume = new Volume();
+	public void query(Volume volume) throws SQLException{
 		
 		PreparedStatement stmt = (PreparedStatement) 
-				this.connection.prepareStatement("Select*"
-						+ "from tb_volume where TITULO= "+titulo);
-		/*
-		  
-		  
-		  if(rs.next()){
-			  c.setCPF(rs.getString("CPF"));
-			  c.setSalario(rs.getDouble("SALARIO"));
-			  c.setNome(rs.getString("NOME"));
-			  c.setSenha(rs.getString("SENHA"));
-		  }	  
-		  rs.close();
-		  stmt.close();	
-		return c;
-	}*/
-
+				this.connection.prepareStatement("Select * from tb_volume where TITULO = ?");
+		stmt.setString(1, volume.getTitulo());
 		ResultSet rs = stmt.executeQuery();
 
-		if(rs.next()){
+		while(rs.next()){
 			
 			System.out.println("ANO DE PUBLICAÇÃO : "+rs.getString("ANO_PUBLIC"));
 			System.out.println("AUTOR : "+rs.getString("AUTOR"));
 			System.out.println("DESCRICAO : "+rs.getString("DESCRICAO"));
 			System.out.println("EDITORA: "+rs.getString("EDITORA"));
-			System.out.println("NUMERO DE PÁGINAS: "+rs.getString("NUM_PAG"));
+			System.out.println("NUMERO DE PAGINAS: "+rs.getString("NUM_PAGE"));
 			System.out.println("TIPO DE VOLUME: "+rs.getString("TIPO_VOLUME"));
 			System.out.println("TITULO: "+rs.getString("TITULO"));
 			System.out.println("\n");
@@ -98,7 +82,6 @@ public class VolumeDAO {
 
 		rs.close();
 		stmt.close();
-		return volume;
 
 	}
 	public void disconnect() throws SQLException {
