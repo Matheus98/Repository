@@ -1,6 +1,9 @@
 package br.edu.ifpb.util;
 
 import android.util.Log;
+
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -8,6 +11,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+
 
 public class HttpService {
 
@@ -18,25 +22,16 @@ public class HttpService {
 
         HttpURLConnection connection = null;
 
-        try {
-
             URL url = new URL(URL_CONTEXT + service);
 
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
-            connection.setConnectTimeout(10000);
-            connection.setReadTimeout(15000);
             connection.connect();
-
-        } finally {
-
-            connection.disconnect();
-        }
 
         return connection;
     }
 
-    public void sendJsonPostRequest() {
+    public void sendJsonPostRequest(String service, JSONObject json) {
 
     }
 
@@ -60,7 +55,7 @@ public class HttpService {
 
         } catch (IOException e) {
 
-            Log.e("Notificationcomunicacao", "IOException: " + e);
+            Log.e("ComunicacaoRest", "IOException: " + e);
         }
 
         return builder.toString();

@@ -13,8 +13,9 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 
 import br.edu.ifpb.util.HttpService;
+import br.edu.ifpb.util.Response;
 
-public class LoginAsyncTask extends AsyncTask<String, Void, HttpURLConnection> {
+public class LoginAsyncTask extends AsyncTask<String, Void, Response> {
 
     Context context;
 
@@ -24,52 +25,64 @@ public class LoginAsyncTask extends AsyncTask<String, Void, HttpURLConnection> {
     }
 
     @Override
-    protected HttpURLConnection doInBackground(String... valores) {
-        Log.i("Notificationcomunicacaorest", "doInBackgroung: "+ valores[0]);
+    protected void onPreExecute() {
 
+        Log.i("ComunicacaoRest", "OnPreExecute");
+    }
+    @Override
+    protected Response doInBackground(String... valores) {
+
+        Log.i("ComunicacaoRest", "doInBackground: " + valores[0]);
+
+        Response response = null;
         HttpURLConnection connection = null;
 
         try {
 
             connection = HttpService.sendGetRequest("servicoservlet");
 
+            int statusCodeHttp = connection.getResponseCode();
+            String contentValue = HttpService.getHttpContent(connection);
+
+            response = new Response(statusCodeHttp, contentValue);
+
         } catch (MalformedURLException ex) {
 
-            Log.e("Notificationcomunicacao", "MalformedURLException");
+            Log.e("ComunicacaoRest", "MalformedURLException");
 
         } catch (IOException ex) {
 
-            Log.e("Notificationcomunicacao", "MalformedURLException");
+            Log.e("ComunicacaoRest", "MalformedURLException");
+
+        } finally {
+
+            connection.disconnect();
         }
 
-        return connection;
+        return response;
     }
 
     @Override
-    protected void onPostExecute(HttpURLConnection connection) {
+    protected void onPostExecute(Response response) {
 
         try {
 
-            int status = connection.getResponseCode();
+            int status = response.getStatusCodeHttp();
 
-            Log.i("Notificationcomunicacao", "Status HTTP-Response: " + status);
+            Log.i("ComunicacaoRest", "Status HTTP-Response: " + status);
 
-            String contentValue = HttpService.getHttpContent(connection);
-            JSONObject json = new JSONObject(contentValue);
+            if (status == HttpURLConnection.HTTP_OK) {
 
-            String nome = json.getString("nome");
-            Toast.makeText(context, nome, Toast.LENGTH_LONG).show();
+                JSONObject json = new JSONObject(response.getContentValue());
 
-            String senha = json.getString("senha");
-            Toast.makeText(context, senha, Toast.LENGTH_LONG).show();
-
-        } catch (IOException e) {
-
-            e.printStackTrace();
+                String nome = json.getString("nome");
+                Log.i("ComunicacaoRest", "Nome: " + nome);
+                Toast.makeText(context, nome, Toast.LENGTH_LONG).show();
+            }
 
         } catch (JSONException e) {
 
-            Log.e("Notificationcomunicacao", "JSONException");
+            Log.e("ComunicacaoRest", "JSONException: " + e);
         }
 
 
