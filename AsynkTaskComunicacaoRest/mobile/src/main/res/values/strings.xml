@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AsynkTaskComunicacaoRest</string>
+    <string name="enviarButton">Enviar</string>
+</resources>
