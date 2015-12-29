@@ -90,7 +90,7 @@ public class HttpService {
             content.close();
 
         } catch (IOException e) {
-            Log.e("NotificationWearApp", "IOException: " + e);
+            Log.e("AsyncTaskRestApp", "IOException: " + e);
         }
 
         return builder.toString();

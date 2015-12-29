@@ -33,13 +33,13 @@ public class LoginAsyncTask extends AsyncTask<String, Void, Response>{
     @Override
     protected void onPreExecute() {
 
-        Log.i("NotificationWearApp", "OnPreExecute");
+        Log.i("AsyncTaskRestApp", "OnPreExecute");
     }
 
     @Override
     protected Response doInBackground(String... valores) {
 
-        Log.i("NotificationWearApp", "doInBackground: " + valores[0]);
+        Log.i("AsyncTaskRestApp", "doInBackground: " + valores[0]);
 
         Response response = null;
         HttpURLConnection connection = null;
@@ -53,7 +53,7 @@ public class LoginAsyncTask extends AsyncTask<String, Void, Response>{
 
 
         } catch (Exception e) {
-            Log.e("", "" + e.getMessage());
+            Log.e("AsyncTaskRestApp", "doInBackground:" + e.getMessage());
         }
 
         try {
@@ -68,11 +68,11 @@ public class LoginAsyncTask extends AsyncTask<String, Void, Response>{
 
         } catch (MalformedURLException ex) {
 
-            Log.e("NotificationWearApp","MalformedURLException");
+            Log.e("AsyncTaskRestApp","MalformedURLException");
 
         } catch (IOException ex) {
 
-            Log.e("NotificationWearApp","MalformedURLException");
+            Log.e("AsyncTaskRestApp","MalformedURLException");
 
         } finally {
 
@@ -88,19 +88,21 @@ public class LoginAsyncTask extends AsyncTask<String, Void, Response>{
         try {
 
             int status = response.getStatusCodeHttp();
+            JSONObject json = new JSONObject(response.getContentValue());
 
             if (status == HttpURLConnection.HTTP_OK) {
 
-                JSONObject json = new JSONObject(response.getContentValue());
+                String key = json.getString("key");
+                Toast.makeText(context, "Key: "+key, Toast.LENGTH_LONG).show();
 
-                String nome = json.getString("nome");
-                Log.i("NotificationWearApp", "Nome: " + nome);
-                Toast.makeText(context, nome, Toast.LENGTH_LONG).show();
+            }else{
+                String erro = json.getString("mensagem");
+                Toast.makeText(context, "Mensagem: "+erro, Toast.LENGTH_LONG).show();
             }
 
         } catch (JSONException e) {
 
-            Log.e("NotificationWearApp", "JSONException: " + e);
+            Log.e("AsyncTaskRestApp", "JSONException: " + e);
         }
     }
 }

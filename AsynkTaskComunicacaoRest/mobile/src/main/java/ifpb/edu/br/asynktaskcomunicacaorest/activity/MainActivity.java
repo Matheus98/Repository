@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Log.i("ComunicacaoRest", "Clique no botão Enviar");
+                Log.i("AsyncTaskRestApp", "Clique no botão Enviar");
 
                 EditText nomeEditText = (EditText) findViewById(R.id.nomeEditText);
                 String nome = nomeEditText.getText().toString();
