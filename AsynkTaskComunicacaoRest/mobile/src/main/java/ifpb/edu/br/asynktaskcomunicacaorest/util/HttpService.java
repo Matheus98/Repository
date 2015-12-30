@@ -37,7 +37,7 @@ public class HttpService {
 
         HttpURLConnection connection = null;
 
-        URL url = new URL(serviceURL);
+        URL url = new URL(URL_CONTEXT + serviceURL);
 
         connection = (HttpURLConnection) url.openConnection();
         connection.setDoOutput(true);
