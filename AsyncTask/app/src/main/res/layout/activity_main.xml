@@ -12,21 +12,21 @@
     android:weightSum="1">
 
     <Button
-        android:id="@+id/calcularIMCButton"
+        android:id="@+id/calcularIMCButtonMain"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="@string/calcularIMCButton"
         android:textSize="15sp"/>
     <Button
-        android:id="@+id/calcularVCTButton"
+        android:id="@+id/calcularVCTButtonMain"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:text="@string/calcularVCTButton"
         android:textSize="15sp"/>
     <Button
-        android:id="@+id/calcularPerfilAntropometrico"
+        android:id="@+id/calcularPerfilAntropometricoMain"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
