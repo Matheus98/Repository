@@ -11,4 +11,5 @@
     <string name="dtNascimentoTextViewVCT">Data Nascimento</string>
     <string name="radioSexoMasculino">M</string>
     <string name="radioSexoFeminimo">F</string>
+    <string name="pesoTextViewPerfilAntropometrico">Peso</string>
 </resources>
