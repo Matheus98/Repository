@@ -18,7 +18,7 @@ import java.net.URL;
  */
 public class HttpService {
     // IP da máquina onde se encontra o servidor. response
-    private static final String URL_CONTEXT = "http://ladoss.com.br:8443/NutrIF_service/";
+    private static final String URL_CONTEXT = "ladoss.com.br:8443/nutrif/NutrIF_service/";
 
     public static HttpURLConnection sendGetRequest(String service)
             throws MalformedURLException, IOException {

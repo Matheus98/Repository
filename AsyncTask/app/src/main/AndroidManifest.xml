@@ -15,11 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
 
-        </activity>
+
         <activity android:name=".activity.CalcularIMCActivity" />
         <activity android:name=".activity.CalcularVCTActivity" />
         <activity android:name=".activity.CalcularPerfilAntropometrico" />
-
+        </activity>
         <!--
              ATTENTION: This was auto-generated to add Google Play services to your project for
              App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
