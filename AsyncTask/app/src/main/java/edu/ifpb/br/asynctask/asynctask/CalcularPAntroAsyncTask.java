@@ -9,6 +9,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 
 import edu.ifpb.br.asynctask.activity.CalcularPerfilAntropometrico;
 import edu.ifpb.br.asynctask.util.HttpService;
@@ -47,7 +48,7 @@ public class CalcularPAntroAsyncTask extends AsyncTask<JSONObject, Void, Respons
 
             int status = response.getStatusCodeHttp();
 
-            if (status == 202) {
+            if (status == HttpURLConnection.HTTP_OK) {
 
                 JSONObject json = new JSONObject(response.getContentValue());
 

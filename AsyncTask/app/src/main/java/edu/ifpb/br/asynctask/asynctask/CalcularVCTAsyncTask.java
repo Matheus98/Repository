@@ -27,7 +27,7 @@ public class CalcularVCTAsyncTask extends AsyncTask<JSONObject, Void, Response> 
 
     protected Response doInBackground(JSONObject... valores) {
 
-        Response response = null;
+            Response response = null;
 
         try {
 
@@ -46,7 +46,7 @@ public class CalcularVCTAsyncTask extends AsyncTask<JSONObject, Void, Response> 
 
             int status = response.getStatusCodeHttp();
 
-            if (status == 202) {
+            if (status == HttpURLConnection.HTTP_OK) {
 
                 JSONObject json = new JSONObject(response.getContentValue());
 

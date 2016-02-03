@@ -49,7 +49,7 @@ public class CalcularIMCAsyncTask extends AsyncTask <JSONObject, Void, Response>
 
             int status = response.getStatusCodeHttp();
 
-            if (status == 202) {
+            if (status == HttpURLConnection.HTTP_OK) {
 
                 JSONObject json = new JSONObject(response.getContentValue());
 
