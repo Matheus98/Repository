@@ -35,8 +35,8 @@ public class HttpService {
 
     }
 
-    //Fazendo a requisição ao rest
-    public static Response sendJSONPostResquest(String service, JSONObject jsonObject)
+    //Alterando de JSONObject para string
+    public static Response sendJSONPostResquest(String service, String jsonObject)
             throws MalformedURLException, IOException {
 
         HttpURLConnection connection = null;
@@ -55,7 +55,7 @@ public class HttpService {
 
         DataOutputStream stream = new DataOutputStream(connection.getOutputStream());
 
-        stream.writeBytes(jsonObject.toString());
+        stream.writeBytes(jsonObject);
         stream.flush();
         stream.close();
 

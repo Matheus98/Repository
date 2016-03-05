@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="edu.ifpb.br.activity.SplashScreenActivity"
+        <activity
+            android:name="edu.ifpb.br.activity.SplashScreenActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -18,7 +19,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="edu.ifpb.br.activity.MainActivity"></activity>
+        <activity android:name="edu.ifpb.br.activity.MainActivity" />
+        <activity android:name="edu.ifpb.br.activity.ListarPessoaActivity"></activity>
     </application>
 
 </manifest>
